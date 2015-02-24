@@ -19,8 +19,8 @@ gulp.task('sass', function () {
 // Advantage: No server required, can run app from filesystem
 // Disadvantage: Requests are not blocked until bundle is available,
 //               can serve an old app on refresh
-gulp.task("build-dev", ["webpack:build-dev", "sass"], function() {
-    gulp.watch(["www/src/**/*"], ["webpack:build-dev", "sass"]);
+gulp.task("build-dev", ["webpack:build-dev"], function() {
+    gulp.watch(["www/src/**/*"], ["webpack:build-dev"]);
 });
 
 // Production build
