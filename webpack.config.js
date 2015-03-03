@@ -11,13 +11,15 @@ module.exports = {
     },
     module: {
         loaders: [
-         // { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader'},
-         // { test: /\.css$/,    loader: "style-loader!css-loader" }
+            // { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader'},
+            // { test: /\.css$/,    loader: "style-loader!css-loader" }
             // {
             //     test: /\.scss$/,
             //     // Passing indentedSyntax query param to node-sass
             //     loader: "style!css!sass?indentedSyntax=true"
             // }
+            {test: /\.(jpe?g|png|gif|svg)$/i, loaders: ['image?bypassOnDebug=false&optimizationLevel=7&interlaced=false?progressive=true']},
+            // {test: /\.css/, loader: 'style-loader!css-loader!autoprefixer-loader'}
         ]
     },
     resolve: {

@@ -1,5 +1,87 @@
+@import 'mixins';
+
 body,
 html {
   width: 100%;
   height: 100%;
+  font-size: 14px;
+  font-family: 'Roboto', sans-serif;
+  color: rgba(255,255,255, .95);
+}
+
+.first-screen {
+  overflow: hidden;
+}
+
+.first-screen__background {
+  position: absolute;
+  z-index: -1;
+  height: 120%;
+  background: {
+    color: transparent;
+    image: url(../images/backgrounds/tank.jpg);
+    size: auto 125%;
+    repeat: no-repeat;
+    position: top center;
+  }
+}
+
+.first-screen__text {
+  position: absolute;
+  left: 20vw;
+  top: 50%;
+  min-width: 50vw;
+  max-width: 80vw;
+  transform: translateY(-150%);
+  & h1 {
+    font-weight: 900;
+  }
+  & p {
+    font-weight: 300;
+  }
+}
+
+.first-screen__arrow-down {
+  position: absolute;
+  width: 100%;
+  height: 7vw;
+  bottom: 4vh;
+  & [class^="detail"] {
+    position: absolute;
+    left: 50vw;
+    width: 7vw;
+    height: 7vw;
+    max-width: 60px;
+    max-height: 60px;
+    background: none;
+    border: 2px solid transparent;
+    border-right-color: rgba(255,255,255, .8);
+    border-bottom-color: rgba(255,255,255, .8);
+    transform: translateX(-50%) rotate(45deg) skew(-20deg,-20deg);
+    transform-origin: center center;
+    @include animation-name(pulse);
+    @include animation-duration(.6s);
+    @include animation-iteration-count(infinite);
+    @include animation-direction(alternate);
+    &[class*="1"] {
+      bottom: 32px;
+      @include animation-delay(1s);
+    }
+    &[class*="2"] {
+      bottom: 14px;
+      @include animation-delay(.5s);
+    }
+    &[class*="3"] {
+      bottom: 0px;
+    }
+  }
+}
+
+@include keyframes(pulse) {
+    0% {
+      opacity: 1
+    }
+    100% {
+      opacity: .6
+    }
 }
