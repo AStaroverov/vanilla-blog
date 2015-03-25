@@ -1,0 +1,1 @@
+var vContent = require('./view/content.js');

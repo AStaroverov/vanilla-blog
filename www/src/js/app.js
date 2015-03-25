@@ -1,6 +1,8 @@
 require('bootstrap-webpack!./bootstrap.config.js');
-require("!style!css!sass?indentedSyntax=sass!../sass/app.scss");
+require("../sass/app.sass");
 
-var Vue = require('vue');
+window.$ = require('jquery');
+window._ = require('lodash');
 require('gsap');
 
+require('./initPage.js');

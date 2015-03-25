@@ -20,7 +20,9 @@ gulp.task('sass', function () {
 // Disadvantage: Requests are not blocked until bundle is available,
 //               can serve an old app on refresh
 gulp.task("build-dev", ["webpack:build-dev"], function() {
-    gulp.watch(["www/src/**/*"], ["webpack:build-dev"]);
+    var watchFiles = ["www/src/js/*", "www/src/js/**/*",
+                      "www/src/sass/*", "www/src/sass/**/*"];
+    gulp.watch(watchFiles, ["webpack:build-dev"]);
 });
 
 // Production build
